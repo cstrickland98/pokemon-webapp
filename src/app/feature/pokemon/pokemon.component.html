@@ -1,4 +1,8 @@
-<div>
-  {{ pokemon.id }}, {{ pokemon.name }}, {{ pokemon.type1 }},
-  {{ pokemon.type2 }}, {{ pokemon.generation }}
+<div id="card">
+  <div>#{{ pokemon.id }} {{ pokemon.name }}</div>
+  <div>
+    {{ pokemon.type1 }}{{ pokemon.type2.length > 1 ? "/" : ""
+    }}{{ pokemon.type2 }}
+  </div>
+  <div>Gen {{ pokemon.generation }}</div>
 </div>

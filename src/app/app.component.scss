@@ -1,0 +1,17 @@
+.header {
+    padding-bottom: 2rem;
+    border-bottom: 4px solid black;
+
+    input, select {
+        margin-right: 0.25rem;
+    }
+}
+
+.bottomHeader {
+    margin-top: 0.5rem;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -1,3 +1,42 @@
-<div *ngFor="let pokemon of pokemon">
-  <app-pokemon [pokemon]="pokemon"></app-pokemon>
+<div>
+  <div class="header">
+    <form [formGroup]="filterForm" (ngSubmit)="onFilterSubmit()">
+      <div class="topHeader">
+        <label for="id">Id: </label>
+        <input id="id" type="number" formControlName="id" />
+
+        <label for="name">Name: </label>
+        <input id="name" type="text" formControlName="name" />
+
+        <label for="type1">Type1: </label>
+        <input id="type1" type="text" formControlName="type1" />
+
+        <label for="type2">Type2: </label>
+        <input id="type2" type="text" formControlName="type2" />
+
+        <label for="generation">Generation: </label>
+        <input id="generation" type="text" formControlName="generation" />
+
+        <label for="logicalOperator">Operator: </label>
+        <select
+          id="logicalOperator"
+          name="operators"
+          formControlName="logicalOperator"
+        >
+          <option value="And">And</option>
+          <option value="Or">Or</option>
+        </select>
+      </div>
+
+      <div class="bottomHeader">
+        <input type="submit" value="Filter" />
+        <button (click)="clear()">Clear</button>
+      </div>
+    </form>
+  </div>
+  <div class="flex-container">
+    <div *ngFor="let pokemon of pokemon">
+      <app-pokemon [pokemon]="pokemon"></app-pokemon>
+    </div>
+  </div>
 </div>

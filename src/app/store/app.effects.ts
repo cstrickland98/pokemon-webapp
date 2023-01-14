@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { PokemonService } from '../services/pokemon.service';
-import { fetchAllPokemon, fetchAllPokemonSuccess } from './app.actions';
+import { fetchPokemon, fetchPokemonSuccess } from './app.actions';
 
 @Injectable()
 export class AppEffects {
@@ -13,11 +13,11 @@ export class AppEffects {
 
   fetchAllPokemon$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(fetchAllPokemon),
-      mergeMap(() =>
-        this.pokemonService.getAllPokemon().pipe(
+      ofType(fetchPokemon),
+      mergeMap((action) =>
+        this.pokemonService.getAllPokemon(action.request).pipe(
           map((pokemon) => {
-            return fetchAllPokemonSuccess({ pokemon });
+            return fetchPokemonSuccess({ pokemon });
           }),
           catchError((error) => {
             return of({ type: 'Fetch All Pokemon', error });
