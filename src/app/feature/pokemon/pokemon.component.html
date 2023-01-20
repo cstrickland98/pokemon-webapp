@@ -1,8 +1,13 @@
 <div id="card">
-  <div>#{{ pokemon.id }} {{ pokemon.name }}</div>
-  <div>
-    {{ pokemon.type1 }}{{ pokemon.type2.length > 1 ? "/" : ""
-    }}{{ pokemon.type2 }}
+  <div id="col1">
+    <img src="../../../assets/{{ pokemon.name | lowercase }}.jpg" />
   </div>
-  <div>Gen {{ pokemon.generation }}</div>
+  <div id="col2">
+    <div>#{{ pokemon.id }} {{ pokemon.name }}</div>
+    <div>
+      {{ pokemon.type1 }}{{ pokemon.type2.length > 1 ? "/" : ""
+      }}{{ pokemon.type2 }}
+    </div>
+    <div>Gen {{ pokemon.generation }}</div>
+  </div>
 </div>
